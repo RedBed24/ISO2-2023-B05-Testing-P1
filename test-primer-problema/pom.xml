@@ -8,6 +8,8 @@
   <artifactId>test-primer-problema</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+	<packaging>jar</packaging>
+
   <name>test-primer-problema</name>
   <url>http://github.com/RedBed24/ISO2-2023-B05-Testing-P1</url>
 
@@ -27,6 +29,13 @@
   </properties>
 
   <dependencies>
+		<dependency>
+			<groupId>iso.b05</groupId>
+			<artifactId>entrada_usuario</artifactId>
+			<version>0.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/entrada_usuario-0.0.0.jar</systemPath>
+		</dependency>
      <dependency>
          <groupId>org.junit.jupiter</groupId>
          <artifactId>junit-jupiter-api</artifactId>
@@ -50,6 +59,18 @@
   <build>
     <finalName>JunitExample</finalName>
     <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>test.iso.b05.App</mainClass>
+						</manifest>
+				</archive>
+				</configuration>
+			</plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
