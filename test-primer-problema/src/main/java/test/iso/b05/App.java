@@ -2,6 +2,9 @@ package test.iso.b05;
 
 import user.cli.Input;
 
+import java.io.PrintStream;
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
@@ -10,6 +13,7 @@ public class App
 {
 	public static void main(String[] args)
 	{
-		System.out.println(Input.getInt());
+		Input in = new Input(new Scanner(System.in), new PrintStream(System.out));
+		System.out.println(in.getInt());
 	}
 }
